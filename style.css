@@ -1,27 +1,33 @@
 body{
+    background-color: black;
+    --light-text-color: #DEDEDE;
+
+}
+
+.container{
     background-image:url(./assets/connor-carruthers-2XlRNChm2rg-unsplash.jpg);
 
     /* background-image:url(./assets/vania-medina-ZEIT7oBdlFw-unsplash.jpg); */
 
 
-  background-size: cover;      /* Makes it stretch to full screen */
+  background-size: cover;      /*Makes it stretch to full screen*/
   background-position: center; /* Centers the image */
   background-repeat: no-repeat;
-  background-attachment: fixed; Optional: creates a parallax effect
+
 }
 
-
-*{
-color:pink;
-border: solid 1px red;
+.transparent_bg{
+    backdrop-filter: blur(5px);
+    background-color: hsla(214, 49%, 27%, 0.2);
 }
 
 .container{
     display:grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 100px 1fr 50px;
+    grid-template-rows: 120px 1fr 50px;
     height: 100vh;
-    /* max-width: 1000px; */
+
+    color: var(--light-text-color);
 }
 
 header{
@@ -31,7 +37,54 @@ header{
 .sidebar{
     grid-column: 1/2;
     grid-row: 1/-1;
+
+    display: grid;
+    grid-template-rows: subgrid;
 }
+
+.sidebar .header{
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
+
+.sidebar .header img{
+    height: 100%;
+    transform: scaleX(-1) rotate(350deg);
+
+}
+
+.sidebar .content{
+    grid-row: 2/-2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-size: 1.5rem;
+    margin: 20% auto;
+}
+
+.sidebar .content .redirect{
+    display: flex;
+
+    height: 35px;
+    color: var(--light-text-color)
+}
+
+.sidebar .content .redirect img{
+    height: 100%;
+    margin-right: 10%;
+}
+
+.sidebar .content .redirect .link{
+    align-self: center ;
+}
+
+.color-filter{
+    filter: brightness(0) saturate(100%) invert(87%) sepia(0%) saturate(0%) hue-rotate(157deg) brightness(99%) contrast(91%);
+}
+
 
 main{
     grid-column: 2/-1;
